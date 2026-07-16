@@ -57,6 +57,61 @@ function hideOverlay(el) {
   el.setAttribute("aria-hidden", "true");
 }
 
+function lockVideo() {
+  document.body.classList.add("video-locked");
+  els.shield.classList.add("active");
+}
+
+function unlockVideo() {
+  document.body.classList.remove("video-locked");
+  els.shield.classList.remove("active");
+}
+
+function wrapYouTube(yt) {
+  return {
+    play: () => yt.playVideo(),
+    pause: () => yt.pauseVideo(),
+    seek: (s) => yt.seekTo(s, true),
+    currentTime: () => (yt.getCurrentTime ? yt.getCurrentTime() : 0),
+    state: () => (yt.getPlayerState ? yt.getPlayerState() : -1),
+    mute: () => {
+      if (yt.mute) yt.mute();
+    },
+    unmute: () => {
+      if (yt.unMute) yt.unMute();
+    },
+    enableControls: () => {},
+  };
+}
+
+function createUnlockedYouTubePlayer(resumeAt) {
+  els.mount.innerHTML = '<div id="ytTarget"></div>';
+  let yt2 = null;
+  yt2 = new YT.Player("ytTarget", {
+    videoId: YT_ID,
+    playerVars: {
+      autoplay: 1,
+      controls: 1,
+      fs: 1,
+      disablekb: 0,
+      rel: 0,
+      modestbranding: 1,
+      playsinline: 1,
+      start: Math.floor(resumeAt),
+    },
+    events: {
+      onReady: (e) => {
+        e.target.seekTo(resumeAt, true);
+        e.target.playVideo();
+      },
+      onStateChange: (e) => {
+        if (e.data === YT.PlayerState.ENDED) onVideoEnd();
+      },
+    },
+  });
+  player = wrapYouTube(yt2);
+}
+
 function createYouTubePlayer() {
   els.mount.innerHTML = '<div id="ytTarget"></div>';
   let ready = false;
@@ -64,8 +119,8 @@ function createYouTubePlayer() {
     videoId: YT_ID,
     playerVars: {
       autoplay: 0,
-      controls: 1,
-      fs: 1,
+      controls: 0,
+      fs: 0,
       disablekb: 1,
       rel: 0,
       modestbranding: 1,
@@ -83,6 +138,13 @@ function createYouTubePlayer() {
       },
       onStateChange: (e) => {
         if (e.data === YT.PlayerState.ENDED) onVideoEnd();
+        if (
+          !unlocked &&
+          !gateShown &&
+          e.data === YT.PlayerState.PAUSED
+        ) {
+          yt.playVideo();
+        }
       },
     },
   });
@@ -115,6 +177,9 @@ function createYouTubePlayer() {
     },
     enableControls: () => {
       clearInterval(poll);
+      const resumeAt = yt.getCurrentTime ? yt.getCurrentTime() : 0;
+      yt.destroy();
+      createUnlockedYouTubePlayer(resumeAt);
     },
   };
 }
@@ -168,7 +233,7 @@ function attemptAutoplay() {
     if (s === 1 || s === 3) {
       started = true;
       els.cover.classList.add("hidden");
-      els.shield.classList.add("active");
+      lockVideo();
       els.unmute.classList.add("visible");
     } else {
       player.pause();
@@ -199,7 +264,7 @@ function startVideo() {
   if (started) return;
   started = true;
   els.cover.classList.add("hidden");
-  els.shield.classList.add("active");
+  lockVideo();
 
   if (player) {
     player.unmute();
@@ -298,9 +363,8 @@ els.form.addEventListener("submit", (e) => {
 
   unlocked = true;
   hideOverlay(els.gateOverlay);
-  els.shield.classList.remove("active");
+  unlockVideo();
   player.enableControls();
-  resumePlayback();
 });
 
 els.watchAgain.addEventListener("click", () => {

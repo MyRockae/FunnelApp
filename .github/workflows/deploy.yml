@@ -13,6 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Stamp asset version for cache busting
+        run: |
+          VERSION="${GITHUB_SHA:0:12}"
+          sed -i "s/__ASSET_VERSION__/${VERSION}/g" index.html
+
       # Hostinger: deploy into domains/rockae.com/public_html/funnel_app/
       # (absolute path on server: /home/u175293752/domains/rockae.com/public_html/funnel_app)
       # Point sales.rockae.com document root at that folder in Hostinger.
