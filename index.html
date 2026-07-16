@@ -40,22 +40,26 @@
     <meta name="twitter:image" content="https://sales.rockae.com/og-share.png" />
     <link rel="icon" href="logo.webp" type="image/webp" />
     <link rel="apple-touch-icon" href="logo.webp" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #1c1a3a;
+      }
+      .logo svg {
+        display: block;
+        height: 54px;
+        width: auto;
+        max-width: min(100vw - 40px, 320px);
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css?v=__ASSET_VERSION__" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <script>
-      (function () {
-        var build = "__ASSET_VERSION__";
-        var bust = build + "-" + Date.now();
-        var css = document.createElement("link");
-        css.rel = "stylesheet";
-        css.href = "styles.css?v=" + encodeURIComponent(bust);
-        document.head.appendChild(css);
-      })();
-    </script>
   </head>
   <body>
     <main class="hero">
