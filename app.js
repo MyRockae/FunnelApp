@@ -1,5 +1,5 @@
 /* Configuration — swap before going live */
-const VIDEO_SRC = "p0oj0-z6LmE";
+const VIDEO_SRC = "Ha4jCnBidZ0";
 const APPS_SCRIPT_URL =
   "PASTE_YOUR_DEPLOYED_APPS_SCRIPT_WEB_APP_URL_HERE";
 const GATE_TIME_SECONDS = 90;
