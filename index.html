@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Rockae — start a paid community or classroom. Gather your people, share what you know, and earn in one place. Built for creators in Africa and worldwide."
+      content="Rockae — start a paid community or classroom. Gather your people, teach, and earn in one place."
     />
     <meta
       property="og:title"
-      content="Create your Rockae community — communities, classrooms &amp; monetization"
+      content="Create your Rockae community"
     />
     <meta
       property="og:description"
-      content="Turn teaching, coaching, or expertise into a home for your people. One platform for community, classrooms, and paid memberships."
+      content="Communities, classrooms, and paid memberships on one platform for creators."
     />
     <meta
       property="og:image"
       content="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/rockaeAppLogo.png"
     />
-    <title>Rockae — Create your community &amp; earn with your passion</title>
+    <title>Rockae — Create your community</title>
     <link
       rel="icon"
       href="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/rockaeBoldIcon.png"
@@ -34,91 +34,99 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip" href="#hero-heading">Skip to content</a>
+    <header class="header">
+      <a class="header__logo" href="#top" aria-label="Rockae home">
+        <img
+          src="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/LogoWithFullName.png"
+          alt="Rockae"
+          width="130"
+          height="36"
+          decoding="async"
+        />
+      </a>
+      <a class="btn btn--small btn--outline" href="https://rockae.com/login">Sign in</a>
+    </header>
 
-    <main>
-      <section class="hero" id="home" aria-labelledby="hero-heading">
-        <div class="hero__media">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/p0oj0-z6LmE?rel=0&modestbranding=1&playsinline=1"
-            title="Rockae — create your community"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__text">
+          <p class="label">For creators &amp; educators</p>
+          <h1 id="hero-heading">
+            Build your community.<br />
+            Earn from what you know.
+          </h1>
+          <p class="hero__sub">
+            Rockae gives you one home for your audience — forums, classrooms,
+            events, and paid memberships. No juggling five different apps.
+          </p>
+          <a class="btn btn--primary" href="https://rockae.com/creator"
+            >Start your community</a
+          >
         </div>
 
-        <div class="hero__copy">
-          <div class="hero__copy-inner">
-            <img
-              class="hero__logo"
-              src="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/LogoWithFullName.png"
-              alt="Rockae"
-              width="180"
-              height="48"
-              decoding="async"
-            />
-            <h1 id="hero-heading">
-              Create your own
-              <span class="hero__rockae">Rockae</span> community
-            </h1>
-            <p class="hero__lede">
-              One place to gather your people, teach what you know, and earn
-              from memberships — for creators in Africa and worldwide.
-            </p>
-            <div class="hero__cta">
-              <a class="btn btn--primary" href="https://rockae.com/creator"
-                >Start your community</a
-              >
-              <a class="btn btn--ghost" href="https://rockae.com/login">Sign in</a>
-            </div>
+        <div class="video">
+          <p class="video__label">See how it works</p>
+          <div class="video__frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/p0oj0-z6LmE?rel=0&modestbranding=1"
+              title="Rockae — create your community"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       </section>
 
-      <section class="band" aria-labelledby="why-heading">
-        <div class="band__inner">
-          <h2 id="why-heading">Communities. Classrooms. Monetization.</h2>
-          <p>
-            Stop juggling tools. Host discussions, teach live or on-demand, and
-            run paid memberships in one Rockae home.
-          </p>
-        </div>
+      <section class="features" aria-labelledby="features-heading">
+        <h2 id="features-heading">Everything in one place</h2>
+        <ul class="features__grid">
+          <li>
+            <h3>Community</h3>
+            <p>Forums, discussions, and a real home for your people.</p>
+          </li>
+          <li>
+            <h3>Classrooms</h3>
+            <p>Teach live or on-demand with courses and learning paths.</p>
+          </li>
+          <li>
+            <h3>Monetization</h3>
+            <p>Paid memberships and premium access, built in.</p>
+          </li>
+        </ul>
       </section>
 
-      <section class="steps" aria-labelledby="how-heading">
-        <h2 id="how-heading">From spark to community</h2>
-        <ol>
+      <section class="how" aria-labelledby="how-heading">
+        <h2 id="how-heading">Three steps to launch</h2>
+        <ol class="how__list">
           <li>
-            <span>01</span>
-            <strong>Start with your passion</strong>
-            <p>Teaching, coaching, a skill, or a mission.</p>
+            <span class="how__num">1</span>
+            <div>
+              <h3>Create your space</h3>
+              <p>Set up your community or classroom in minutes.</p>
+            </div>
           </li>
           <li>
-            <span>02</span>
-            <strong>Create your space</strong>
-            <p>Set up your community or classroom on Rockae.</p>
+            <span class="how__num">2</span>
+            <div>
+              <h3>Invite your people</h3>
+              <p>Share content, run events, and grow your audience.</p>
+            </div>
           </li>
           <li>
-            <span>03</span>
-            <strong>Invite &amp; earn</strong>
-            <p>Bring members in and offer paid access when you’re ready.</p>
+            <span class="how__num">3</span>
+            <div>
+              <h3>Start earning</h3>
+              <p>Offer paid access when you are ready.</p>
+            </div>
           </li>
         </ol>
       </section>
 
-      <section class="close" aria-labelledby="close-heading">
-        <img
-          src="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/rockaeBoldIcon.png"
-          alt=""
-          width="48"
-          height="48"
-          decoding="async"
-        />
-        <h2 id="close-heading">
-          Claim your community before someone else builds the audience.
-        </h2>
-        <a class="btn btn--primary" href="https://rockae.com/creator"
-          >Start your own community</a
+      <section class="cta" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Ready to start?</h2>
+        <p>Join creators building communities on Rockae today.</p>
+        <a class="btn btn--white" href="https://rockae.com/creator"
+          >Create your community</a
         >
       </section>
     </main>
