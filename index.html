@@ -3,146 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rockae — You have followers. Are any of them paying you?</title>
     <meta
       name="description"
-      content="Rockae — start a paid community or classroom. Gather your people, teach, and earn in one place."
-    />
-    <meta
-      property="og:title"
-      content="Create your Rockae community"
-    />
-    <meta
-      property="og:description"
-      content="Communities, classrooms, and paid memberships on one platform for creators."
-    />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/rockaeAppLogo.png"
-    />
-    <title>Rockae — Create your community</title>
-    <link
-      rel="icon"
-      href="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/rockaeBoldIcon.png"
-      type="image/png"
+      content="Watch this free 4-minute video to see exactly how Nigerian creators are earning ₦100,000+ monthly from audiences they already have."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header">
-      <a class="header__logo" href="#top" aria-label="Rockae home">
-        <img
-          src="https://raw.githubusercontent.com/MyRockae/.github/main/thumbnails/LogoWithFullName.png"
-          alt="Rockae"
-          width="130"
-          height="36"
-          decoding="async"
-        />
-      </a>
-      <a class="btn btn--small btn--outline" href="https://rockae.com/login">Sign in</a>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero__text">
-          <p class="label">For creators &amp; educators</p>
-          <h1 id="hero-heading">
-            Build your community.<br />
-            Earn from what you know.
-          </h1>
-          <p class="hero__sub">
-            Rockae gives you one home for your audience — forums, classrooms,
-            events, and paid memberships. No juggling five different apps.
-          </p>
-          <a class="btn btn--primary" href="https://rockae.com/creator"
-            >Start your community</a
+    <main class="hero">
+      <div class="logo" role="img" aria-label="Rockae">
+        <svg viewBox="0 0 800 270" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rkGrad" x1="0.2" y1="0" x2="0.75" y2="1">
+              <stop offset="0" stop-color="#29ABE8" />
+              <stop offset="0.30" stop-color="#4A5CEF" />
+              <stop offset="0.55" stop-color="#8B2FD6" />
+              <stop offset="0.75" stop-color="#C724B1" />
+              <stop offset="1" stop-color="#F0592A" />
+            </linearGradient>
+            <radialGradient id="rkGlow" cx="0.72" cy="1.05" r="0.55">
+              <stop offset="0" stop-color="#FFB300" />
+              <stop offset="0.5" stop-color="#F0592A" stop-opacity="0.85" />
+              <stop offset="1" stop-color="#F0592A" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <rect x="8" y="10" width="248" height="248" rx="82" fill="url(#rkGrad)" />
+          <rect x="8" y="10" width="248" height="248" rx="82" fill="url(#rkGlow)" />
+          <text
+            x="132"
+            y="212"
+            text-anchor="middle"
+            font-family="'Baloo 2', 'Montserrat', sans-serif"
+            font-weight="800"
+            font-size="215"
+            fill="#fff"
           >
-        </div>
+            R
+          </text>
+          <text
+            x="248"
+            y="212"
+            font-family="'Baloo 2', 'Montserrat', sans-serif"
+            font-weight="800"
+            font-size="196"
+            letter-spacing="-4"
+            stroke="#0A0A12"
+            stroke-width="14"
+            stroke-linejoin="round"
+            style="paint-order: stroke fill"
+          >
+            <tspan fill="#FFFFFF">ock</tspan>
+            <tspan fill="#F5A623">ae</tspan>
+          </text>
+        </svg>
+      </div>
 
-        <div class="video">
-          <p class="video__label">See how it works</p>
-          <div class="video__frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/p0oj0-z6LmE?rel=0&modestbranding=1"
-              title="Rockae — create your community"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+      <div class="hero-inner">
+        <span class="pill">FREE RESOURCE&nbsp;&nbsp;·&nbsp;&nbsp;4 MIN</span>
+
+        <h1 class="headline">
+          You have followers.
+          <span class="gold-line">Are any of them paying you?</span>
+        </h1>
+
+        <p class="sub">
+          Watch this 4-minute video to see exactly how Nigerian creators are
+          earning ₦100,000+ monthly from audiences they already have.
+        </p>
+
+        <div class="video-frame" id="videoFrame">
+          <div id="playerMount"></div>
+          <div class="click-shield" id="clickShield"></div>
+          <button class="unmute-bar" id="unmuteBar" type="button">
+            🔊&nbsp;&nbsp;Tap for sound
+          </button>
+          <div
+            class="video-cover"
+            id="videoCover"
+            role="button"
+            aria-label="Play video"
+            tabindex="0"
+          >
+            <button class="play-btn" type="button" aria-label="Play video">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M8 5.14v13.72c0 .8.87 1.3 1.56.88l10.54-6.86a1.03 1.03 0 0 0 0-1.76L9.56 4.26A1.03 1.03 0 0 0 8 5.14z"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </section>
 
-      <section class="features" aria-labelledby="features-heading">
-        <h2 id="features-heading">Everything in one place</h2>
-        <ul class="features__grid">
-          <li>
-            <h3>Community</h3>
-            <p>Forums, discussions, and a real home for your people.</p>
-          </li>
-          <li>
-            <h3>Classrooms</h3>
-            <p>Teach live or on-demand with courses and learning paths.</p>
-          </li>
-          <li>
-            <h3>Monetization</h3>
-            <p>Paid memberships and premium access, built in.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="how" aria-labelledby="how-heading">
-        <h2 id="how-heading">Three steps to launch</h2>
-        <ol class="how__list">
-          <li>
-            <span class="how__num">1</span>
-            <div>
-              <h3>Create your space</h3>
-              <p>Set up your community or classroom in minutes.</p>
-            </div>
-          </li>
-          <li>
-            <span class="how__num">2</span>
-            <div>
-              <h3>Invite your people</h3>
-              <p>Share content, run events, and grow your audience.</p>
-            </div>
-          </li>
-          <li>
-            <span class="how__num">3</span>
-            <div>
-              <h3>Start earning</h3>
-              <p>Offer paid access when you are ready.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section class="cta" aria-labelledby="cta-heading">
-        <h2 id="cta-heading">Ready to start?</h2>
-        <p>Join creators building communities on Rockae today.</p>
-        <a class="btn btn--white" href="https://rockae.com/creator"
-          >Create your community</a
-        >
-      </section>
+        <div class="stats">
+          <div class="stat">
+            <div class="num">₦22B</div>
+            <div class="label">Creator payouts in Nigeria (2025)</div>
+          </div>
+          <div class="stat">
+            <div class="num">23M</div>
+            <div class="label">Female entrepreneurs in Nigeria</div>
+          </div>
+          <div class="stat">
+            <div class="num">56%</div>
+            <div class="label">Creators currently earning under $100/month</div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer class="footer">
-      <p>Communities that thrive.</p>
-      <p>
-        <a href="https://rockae.com">rockae.com</a>
-        ·
-        <a href="mailto:community@rockae.com">community@rockae.com</a>
-        · &copy; <span id="year"></span> Rockae
-      </p>
-    </footer>
+    <div class="overlay" id="gateOverlay" aria-hidden="true">
+      <div class="overlay-card">
+        <h2>Want to see how this works for you?</h2>
+        <p class="lead">
+          Enter your details to finish watching — and get the free
+          <strong style="color: var(--near-white)"
+            >Nigerian Creator's Income Playbook</strong
+          >
+          instantly.
+        </p>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+        <form class="gate-form" id="gateForm" novalidate>
+          <div>
+            <label for="leadName">Full Name</label>
+            <input
+              type="text"
+              id="leadName"
+              name="name"
+              autocomplete="name"
+              placeholder="e.g. Adaeze Okafor"
+              required
+            />
+          </div>
+          <div>
+            <label for="leadEmail">Email Address</label>
+            <input
+              type="email"
+              id="leadEmail"
+              name="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="leadWhatsapp">WhatsApp Number</label>
+            <input
+              type="tel"
+              id="leadWhatsapp"
+              name="whatsapp"
+              autocomplete="tel"
+              placeholder="+234..."
+              required
+            />
+          </div>
+
+          <button class="btn-gold" id="gateSubmit" type="submit">
+            Continue Watching&nbsp;&rarr;
+          </button>
+          <p class="form-error" id="formError">
+            Please fill in all three fields correctly.
+          </p>
+        </form>
+
+        <p class="fine-print">
+          No spam. Unsubscribe any time. Your details stay private.
+        </p>
+      </div>
+    </div>
+
+    <div class="overlay" id="endOverlay" aria-hidden="true">
+      <div class="overlay-card">
+        <h2 class="gold">Your playbook is on its way.</h2>
+        <p class="lead">
+          Check your email and WhatsApp for the link. While you wait —
+          claim your founding member spot on Rockae.
+        </p>
+
+        <a
+          class="btn-gold"
+          href="https://rockae.com/register"
+          target="_blank"
+          rel="noopener"
+        >
+          Register Free&nbsp;&rarr;&nbsp;rockae.com/register
+        </a>
+
+        <br />
+        <a class="watch-again" id="watchAgain">Watch again</a>
+
+        <div class="webinar-note">
+          🎥 <strong style="color: var(--near-white)">Free Live Webinar:</strong>
+          How to Build a Paid Community in Naira<br />
+          Register above to receive the date and link.
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
