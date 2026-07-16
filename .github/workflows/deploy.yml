@@ -1,0 +1,40 @@
+name: Deploy Funnel App to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Every push to main deploys to Hostinger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Hostinger: deploy into domains/rockae.com/public_html/funnel_app/
+      # (absolute path on server: /home/u175293752/domains/rockae.com/public_html/funnel_app)
+      # Point sales.rockae.com document root at that folder in Hostinger.
+      #
+      # GitHub secrets — Settings → Secrets and variables → Actions:
+      #   FTP_SERVER     → host only (no ftp://)
+      #   FTP_USERNAME   → main FTP user (home contains domains/)
+      #   FTP_PASSWORD   → main FTP password
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: 'ftp'
+          port: 21
+          local-dir: ./
+          server-dir: domains/rockae.com/public_html/funnel_app/
+          log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/README.md
+            **/.gitignore
