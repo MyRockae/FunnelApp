@@ -429,20 +429,6 @@ body.video-locked #playerMount video {
   color: var(--muted-dark);
 }
 
-.brand-mark {
-  width: 100%;
-  max-width: 560px;
-  margin-top: 28px;
-  line-height: 0;
-}
-
-.brand-mark img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
 @media (max-width: 640px) {
   .headline {
     font-size: 28px;
